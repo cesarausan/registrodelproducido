@@ -1,0 +1,21 @@
+Planificación del Proyecto – Interfaz gráfica con el Usuario (HTML)
+
+ 
+
+Los integrantes del grupo trabajarán el mismo proyecto seleccionado en el Sprint 1 y se debe realizar:
+
+1.       Para iniciar con el desarrollo de este sprint, se deberá crear una cuenta en Jira. Para ello, revise el siguiente enlace:  https://www.atlassian.com/es/software/jira, versión demo gratuita.
+
+2.       Antes de crear el proyecto, los grupos de trabajo deben seleccionar un rol dentro del desarrollo del proyecto: Scrum Master, Scrum Team, Product Owner y cliente. En tal sentido, organice con su grupo de trabajo estos roles. Si tienen duda sobre los pasos, consultar el material del formador sobre la metodología SCRUM.
+
+3.       Cada grupo debe crear un proyecto de scrum. Y, cuando se haya hecho, se creará una cuenta de Jira Software y posteriormente, al iniciar la sesión, se tendrá la opción de seleccionar una plantilla de la biblioteca (Seleccionar Scrum).
+
+4.       El proyecto debe ser creado por el Product Owner.
+
+5.       Para la planificación del proyecto, entregar en un archivo en formato Word, con evidencias tomadas desde Jira, que incluya soporte de los integrantes del proyecto, épicas e historias de usuario definidas y la definición de al menos un Sprint. Se recomienda incluir en las épicas e historias de usuario a definición del proyecto para desarrollar del Sprint 
+
+6.       Además de la evidencia de la planificación del proyecto en JIRA, realizar a través de formularios de HTML, un primer diseño de interfaz para la captura de la información de al menos un requerimiento funcional del proyecto, incluyendo el diseño del LOGIN. Para esta evidencia se debe entregar las páginas WEB, en HTML, con los formularios.
+
+Como evidencia final del Sprint 2, se debe entregar un archivo comprimido (ZIP/RAR) que incluye el documento en WORD con los soportes de la planificación del proyecto realizada con JIRA y las páginas WEB con los formularios solicitados.
+
+NOTA: Cada integrante de los equipos de trabajo deben subir la evidencia en su plataforma.
