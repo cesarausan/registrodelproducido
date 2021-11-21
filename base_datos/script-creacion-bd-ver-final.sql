@@ -1,3 +1,9 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
 -- -----------------------------------------------------
 -- Schema transportadora
 -- -----------------------------------------------------
@@ -10,38 +16,7 @@ CREATE SCHEMA IF NOT EXISTS `transportadora` DEFAULT CHARACTER SET utf8 ;
 USE `transportadora` ;
 
 -- -----------------------------------------------------
--- Tabla `transportadora`.`departamento`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `transportadora`.`departamento` ;
-
-CREATE TABLE IF NOT EXISTS `transportadora`.`departamento` (
-  `codigo_dep` INT NOT NULL,
-  `nombre_DEP` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`codigo_dep`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Tabla `transportadora`.`ciudad`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `transportadora`.`ciudad` ;
-
-CREATE TABLE IF NOT EXISTS `transportadora`.`ciudad` (
-  `codigo_dep` INT NOT NULL,
-  `codigo_ciu` INT NOT NULL,
-  `nombre_ciu` VARCHAR(45) NULL,
-  PRIMARY KEY (`codigo_ciu`),
-  INDEX `fk_ciudad_departamento_idx` (`codigo_dep` ASC) VISIBLE,
-  CONSTRAINT `fk_ciudad_departamento`
-    FOREIGN KEY (`codigo_dep`)
-    REFERENCES `transportadora`.`departamento` (`codigo_dep`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Tabla `transportadora`.`tipo_usuario`
+-- Table `transportadora`.`tipo_usuario`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `transportadora`.`tipo_usuario` ;
 
@@ -53,28 +28,22 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Tabla `transportadora`.`usuario`
+-- Table `transportadora`.`usuario`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `transportadora`.`usuario` ;
 
 CREATE TABLE IF NOT EXISTS `transportadora`.`usuario` (
   `cedula_usu` INT NOT NULL,
+  `idtipo_usuario` INT NOT NULL,
   `nombre_usu` VARCHAR(45) NOT NULL,
   `apellido_usu` VARCHAR(45) NULL,
   `email_usu` VARCHAR(45) NULL,
+  `username` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(20) NOT NULL,
   `direccion_usu` VARCHAR(100) NULL,
-  `codigo_ciu` INT NOT NULL,
   `celular_usu` INT NULL,
-  `idtipo_usuario` INT NOT NULL,
-  `contrasena` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`cedula_usu`),
-  INDEX `fk_usuairo_ciudad1_idx` (`codigo_ciu` ASC) VISIBLE,
   INDEX `fk_usuairo_tipo_usuario1_idx` (`idtipo_usuario` ASC) VISIBLE,
-  CONSTRAINT `fk_usuairo_ciudad1`
-    FOREIGN KEY (`codigo_ciu`)
-    REFERENCES `transportadora`.`ciudad` (`codigo_ciu`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_usuairo_tipo_usuario1`
     FOREIGN KEY (`idtipo_usuario`)
     REFERENCES `transportadora`.`tipo_usuario` (`idtipo_usuario`)
@@ -84,19 +53,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Tabla `transportadora`.`eps`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `transportadora`.`eps` ;
-
-CREATE TABLE IF NOT EXISTS `transportadora`.`eps` (
-  `ideps` INT NOT NULL AUTO_INCREMENT,
-  `nombre_eps` VARCHAR(100) NOT NULL,
-  PRIMARY KEY (`ideps`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Tabla `transportadora`.`conductor`
+-- Table `transportadora`.`conductor`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `transportadora`.`conductor` ;
 
@@ -106,45 +63,25 @@ CREATE TABLE IF NOT EXISTS `transportadora`.`conductor` (
   `email_cond` VARCHAR(45) NULL,
   `celular_cond` INT NULL,
   `direccion_cond` VARCHAR(100) NULL,
-  `ideps` INT NOT NULL,
-  PRIMARY KEY (`cedula_cond`),
-  INDEX `fk_conductor_eps1_idx` (`ideps` ASC) VISIBLE,
-  CONSTRAINT `fk_conductor_eps1`
-    FOREIGN KEY (`ideps`)
-    REFERENCES `transportadora`.`eps` (`ideps`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`cedula_cond`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Tabla `transportadora`.`ruta`
+-- Table `transportadora`.`ruta`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `transportadora`.`ruta` ;
 
 CREATE TABLE IF NOT EXISTS `transportadora`.`ruta` (
   `numero_ruta` INT NOT NULL AUTO_INCREMENT,
-  `detalle_ruta` VARCHAR(100) NOT NULL,
+  `descripcion_ruta` VARCHAR(100) NOT NULL,
   `valor_pasaje` INT NOT NULL,
   PRIMARY KEY (`numero_ruta`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Tabla `transportadora`.`marcas_bus`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `transportadora`.`marcas_bus` ;
-
-CREATE TABLE IF NOT EXISTS `transportadora`.`marcas_bus` (
-  `idmarcas_bus` INT NOT NULL,
-  `marca_us` VARCHAR(45) NOT NULL,
-  `modelo` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idmarcas_bus`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Tabla `transportadora`.`bus`
+-- Table `transportadora`.`bus`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `transportadora`.`bus` ;
 
@@ -152,33 +89,24 @@ CREATE TABLE IF NOT EXISTS `transportadora`.`bus` (
   `numero_bus` INT NOT NULL,
   `placa_bus` VARCHAR(6) NOT NULL,
   `numero_ruta` INT NOT NULL,
-  `idmarcas_bus` INT NOT NULL,
-  `cilindraje` INT NULL,
   PRIMARY KEY (`numero_bus`),
   INDEX `fk_bus_ruta1_idx` (`numero_ruta` ASC) VISIBLE,
-  INDEX `fk_bus_marcas_bus1_idx` (`idmarcas_bus` ASC) VISIBLE,
   CONSTRAINT `fk_bus_ruta1`
     FOREIGN KEY (`numero_ruta`)
     REFERENCES `transportadora`.`ruta` (`numero_ruta`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_bus_marcas_bus1`
-    FOREIGN KEY (`idmarcas_bus`)
-    REFERENCES `transportadora`.`marcas_bus` (`idmarcas_bus`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Tabla `transportadora`.`bus_conductor`
+-- Table `transportadora`.`bus_conductor`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `transportadora`.`bus_conductor` ;
 
 CREATE TABLE IF NOT EXISTS `transportadora`.`bus_conductor` (
   `numero_bus` INT NOT NULL,
   `cedula_cond` INT NOT NULL,
-  `fecha` DATE NOT NULL,
   PRIMARY KEY (`numero_bus`, `cedula_cond`),
   INDEX `fk_bus_has_conductor_conductor1_idx` (`cedula_cond` ASC) VISIBLE,
   INDEX `fk_bus_has_conductor_bus1_idx` (`numero_bus` ASC) VISIBLE,
@@ -196,7 +124,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Tabla `transportadora`.`registro_diario`
+-- Table `transportadora`.`registro_diario`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `transportadora`.`registro_diario` ;
 
@@ -230,3 +158,8 @@ CREATE TABLE IF NOT EXISTS `transportadora`.`registro_diario` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
