@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trans Colombia - Admin Panel</title>
+  <link href="content/css/skinTheme.css" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+  <link href="content/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="content/img/favicon.ico">
+</head>
+<body>
+  <div class="container">
+    <h1><img src="content/img/logo_logIn.png" /></h1>
+    <br>
+    <form>
+      <div class="row">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label>Cedula</label>
+            <input type="text" class="form-control" placeholder="Cedula">
+          </div>
+          <div class="form-group col-md-3">
+            <label>Nombres</label>
+            <input type="text" class="form-control" placeholder="Nombres">
+          </div>
+          <div class="form-group col-md-3">
+            <label>Apellidos</label>
+            <input type="text" class="form-control" placeholder="Apellidos">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <div class="form-group col-md-6">
+            <label for="inputAddress">Direccion</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Cl 75 a # 90 - 150">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputState">Departamento</label>
+            <select id="inputState" class="form-control">
+              <option selected>Seleccione...</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="inputCity">Ciudad</label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="inputEmail4">Correo</label>
+            <input type="email" class="form-control" id="inputEmail4" placeholder="Correo">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputPassword4">Contraseña</label>
+            <input type="password" class="form-control" id="inputPassword4" placeholder="Contraseña">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <select class="form-select" aria-label="TipoUsuario">
+            <option selected>Tipo de Usuario</option>
+            <option value="1">1. Administrador</option>
+            <option value="2">2. Funcionario</option>
+            <option value="3">3. Socio</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Registrar</button>
+      </div>
+    </form>
+    <!--FOOTER-->
+    <footer>
+      <div class="card-group">
+        <div class="card">
+          <img class="card-img-top" src="content/img/logoDeveloped.png">
+          <div class="card-body">
+            <h5 class="card-title">Grupo 5</h5>
+            <p class="card-text">Mision Tic 2022</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>
