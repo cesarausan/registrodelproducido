@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `transportadora`.`usuario` (
   `username` VARCHAR(50) NOT NULL,
   `password` VARCHAR(20) NOT NULL,
   `direccion_usu` VARCHAR(100) NULL,
-  `celular_usu` INT NULL,
+  `celular_usu` VARCHAR(14) NULL,
   PRIMARY KEY (`cedula_usu`),
   INDEX `fk_usuairo_tipo_usuario1_idx` (`idtipo_usuario` ASC) VISIBLE,
   CONSTRAINT `fk_usuairo_tipo_usuario1`
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `transportadora`.`conductor` (
   `cedula_cond` INT NOT NULL,
   `nombre_cond` VARCHAR(45) NOT NULL,
   `email_cond` VARCHAR(45) NULL,
-  `celular_cond` INT NULL,
+  `celular_cond` VARCHAR(14) NULL,
   `direccion_cond` VARCHAR(100) NULL,
   PRIMARY KEY (`cedula_cond`))
 ENGINE = InnoDB;
