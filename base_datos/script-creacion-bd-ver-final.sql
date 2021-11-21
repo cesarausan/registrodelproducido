@@ -1,9 +1,3 @@
--- MySQL Workbench Forward Engineering
-
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
 -- -----------------------------------------------------
 -- Schema transportadora
 -- -----------------------------------------------------
@@ -16,7 +10,7 @@ CREATE SCHEMA IF NOT EXISTS `transportadora` DEFAULT CHARACTER SET utf8 ;
 USE `transportadora` ;
 
 -- -----------------------------------------------------
--- Table `transportadora`.`tipo_usuario`
+-- Tabla `transportadora`.`tipo_usuario`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `transportadora`.`tipo_usuario` ;
 
@@ -28,7 +22,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `transportadora`.`usuario`
+-- Tabla `transportadora`.`usuario`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `transportadora`.`usuario` ;
 
@@ -53,7 +47,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `transportadora`.`conductor`
+-- Tabla `transportadora`.`conductor`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `transportadora`.`conductor` ;
 
@@ -68,7 +62,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `transportadora`.`ruta`
+-- Tabla `transportadora`.`ruta`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `transportadora`.`ruta` ;
 
@@ -81,7 +75,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `transportadora`.`bus`
+-- Tabla `transportadora`.`bus`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `transportadora`.`bus` ;
 
@@ -100,7 +94,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `transportadora`.`bus_conductor`
+-- Tabla `transportadora`.`bus_conductor`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `transportadora`.`bus_conductor` ;
 
@@ -124,7 +118,7 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `transportadora`.`registro_diario`
+-- Tabla `transportadora`.`registro_diario`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `transportadora`.`registro_diario` ;
 
@@ -158,8 +152,3 @@ CREATE TABLE IF NOT EXISTS `transportadora`.`registro_diario` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
