@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Trans Colombia - Admin Panel</title>
-  <link href="content/css/skinTheme.css" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-  <link href="content/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" type="image/x-icon" href="content/img/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
-    <h1><img src="content/img/logo_logIn.png" /></h1>
-    <br>
-    <form>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="./content/img/logo_logIn.png" alt="logo" style="max-height: 70px; max-width: 70px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav nav-fill w-100">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link disabled">Disabled</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <form id="crearUsuario" method="POST" action="crearUsuario.php">
       <div class="row">
         <div class="form-row">
           <div class="form-group col-md-3">
             <label>Cedula</label>
-            <input type="text" class="form-control" placeholder="Cedula">
+            <input type="number" class="form-control" placeholder="Cedula" name="cedula" required>
           </div>
           <div class="form-group col-md-3">
             <label>Nombres</label>
-            <input type="text" class="form-control" placeholder="Nombres">
+            <input type="text" class="form-control" placeholder="Nombres" name="nombre" required>
           </div>
           <div class="form-group col-md-3">
             <label>Apellidos</label>
-            <input type="text" class="form-control" placeholder="Apellidos">
+            <input type="text" class="form-control" placeholder="Apellidos" name="apellido" required>
           </div>
         </div>
       </div>
@@ -35,19 +52,12 @@
         <div class="form-group">
           <div class="form-group col-md-6">
             <label for="inputAddress">Direccion</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="Cl 75 a # 90 - 150">
-          </div>
-          <div class="form-group col-md-3">
-            <label for="inputState">Departamento</label>
-            <select id="inputState" class="form-control">
-              <option selected>Seleccione...</option>
-              <option>...</option>
-            </select>
+            <input type="text" class="form-control" id="inputAddress" name="direccion" placeholder="Cl 75 a # 90 - 150" required>
           </div>
           <div class="form-row">
             <div class="form-group col-md-3">
-              <label for="inputCity">Ciudad</label>
-              <input type="text" class="form-control" id="inputCity">
+              <label for="inputCity">Celular</label>
+              <input type="text" class="form-control" name="celular" id="inputCity" placeholder="3003001234" required>
             </div>
           </div>
         </div>
@@ -56,17 +66,21 @@
         <div class="form-row">
           <div class="form-group col-md-3">
             <label for="inputEmail4">Correo</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Correo">
+            <input type="email" class="form-control" id="inputEmail4" name="correo" placeholder="Correo" required>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputUser">Usuario</label>
+            <input type="text" class="form-control" id="inputUser" name="usuario" placeholder="Usuario" required>
           </div>
           <div class="form-group col-md-3">
             <label for="inputPassword4">Contraseña</label>
-            <input type="password" class="form-control" id="inputPassword4" placeholder="Contraseña">
+            <input type="password" class="form-control" id="inputPassword4" name="contrasena" placeholder="Contraseña" required>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="form-group">
-          <select class="form-select" aria-label="TipoUsuario">
+          <select class="form-select" aria-label="TipoUsuario" name="tipousuario" required>
             <option selected>Tipo de Usuario</option>
             <option value="1">1. Administrador</option>
             <option value="2">2. Funcionario</option>
@@ -78,11 +92,20 @@
         <button type="submit" class="btn btn-primary">Registrar</button>
       </div>
     </form>
+    <!--JS-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!--FOOTER-->
     <footer>
       <div class="card-group">
         <div class="card">
-          <img class="card-img-top" src="content/img/logoDeveloped.png">
+          <img class="card-img-top" src="content/img/logoDeveloped.png" alt="logo"
+            style="max-height: 400px; max-width: 200px;">
           <div class="card-body">
             <h5 class="card-title">Grupo 5</h5>
             <p class="card-text">Mision Tic 2022</p>
@@ -90,5 +113,7 @@
         </div>
       </div>
     </footer>
+  </div>
 </body>
+
 </html>
